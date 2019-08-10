@@ -1,0 +1,56 @@
+<div class="card card-default">
+    <div class="card-header">
+        <div class="card-title"><strong>{{cardTitle}} </strong></div>
+    </div>
+
+    <div class="card-body" *ngIf="!isQuiz">
+        <form [formGroup]="userInfoForm">
+            <div class="row text-left">
+                <div class="col-md-12 form-group">
+                    <label><strong>Name</strong></label>
+                    <input type="text" class="form-control" formControlName="username">
+                    <span class="text-danger"
+                        *ngIf="userInfoForm.get('username').hasError('required') && userInfoForm.get('username').touched">
+                        Username is Required
+                    </span>
+                </div>
+            </div>
+        </form>
+        <!-- <button class="btn btn-success btn-sm mx-2 " (click)="startQuiz()" [disabled]="!userInfoForm.valid">&nbsp;Start
+            Quiz</button> -->
+        <div class="row">
+            <div class="col-md-6 offset-md-4">
+                <button class="btn btn-link " (click)="startQuiz()" [disabled]="!userInfoForm.valid">
+                    <img src="assets\img\start_quiz.png" alt="Start Quiz" style="width:50%">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body" *ngIf="isQuiz">
+        <div class="row text-left">
+            <div class="col-sm-12">
+                <div *ngIf="lstQuestions">Question {{ lstQuestions?.id}}. {{lstQuestions?.question}}</div>
+                <div *ngFor="let opt of lstQuestions?.options; let i = index">
+                    <ng-container>
+                        {{i+1}}.
+                        <label><input type="Radio" name="isAns" (change)="getScore(opt)">
+                            {{opt.options}}</label>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+
+        <div class="row float-right mt-5">
+            <!-- <button class="btn btn-info btn-sm mx-2 isdisabled" (click)="priviousQuetion()"
+                [disabled]="isbtnPrivious"><i class="	fa fa-arrow-circle-left"></i>&nbsp;Previous</button> -->
+
+            <button class="btn btn-danger btn-sm mx-2" (click)="stopQuetion()"><i
+                    class="fa fa-stop"></i>&nbsp;Stop</button>
+            <button class="btn btn-success btn-sm mx-2 isdisabled" (click)="nextQuetion()" [disabled]="isbtnNext"><i
+                    class="fa fa-arrow-circle-right"></i>&nbsp;Next</button>
+            <button class="btn btn-info btn-sm mx-2 " (click)="reTest()"><i
+                    class="	fa fa-refrash"></i>&nbsp;Retest</button>
+        </div>
+    </div>
+</div>

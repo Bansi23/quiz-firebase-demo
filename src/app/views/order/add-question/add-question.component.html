@@ -1,0 +1,55 @@
+<div class="card card-default">
+    <div class="card-header">
+        <div class="card-title">
+            <strong> Add question</strong>
+        </div>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="addQuestionForm">
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <label><strong>-Question</strong></label>
+                    <input type="text" class="form-control" formControlName="question">
+                    <span class="text-danger"
+                        *ngIf="addQuestionForm.get('question').hasError('required') && addQuestionForm.get('question').touched">
+                        Question is Required
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <table>
+                        <ng-container formArrayName="options">
+                            <tr *ngFor="let itemrow of options.controls; let i=index" [formGroupName]="i">
+                                <td class="ml-2">{{i+1}}</td>
+                                <td>
+                                    <input type="text" class="form-control ml-2 mb-2" formControlName="options">
+                                    <span class="text-danger"
+                                        *ngIf="itemrow.get('options').hasError('required') && itemrow.get('options').touched ">
+                                        Option is required
+                                    </span>
+                                </td>
+                                <td><input type="checkbox" formControlName="answer" class="checkmark ml-4 mb-2"></td>
+                            </tr>
+                        </ng-container>
+                    </table>
+                </div>
+            </div>
+            <hr>
+
+            <div class="row">
+                <div class="col col-md-12 col-lg-12">
+                    <button (click)="addNewRow()" class="btn btn-link" *ngIf="options.controls.length < 4"><i
+                            class="fa fa-plus"></i>&nbsp;Add
+                        Options</button>
+                </div>
+            </div>
+
+            <div class="row float-right mt-5">
+                <button class="btn btn-info btn-sm" *ngIf="!isEdit" (click)="addQuetion()"><i
+                        class="fa fa-save"></i>&nbsp;Save</button>
+            </div>
+        </form>
+    </div>
+</div>

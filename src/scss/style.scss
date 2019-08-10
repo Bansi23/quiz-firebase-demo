@@ -1,0 +1,142 @@
+// If you want to override variables do it here
+@import "variables";
+
+// Import styles
+@import "~@coreui/coreui/scss/coreui";
+
+// If you want to add something do it here
+@import "custom";
+
+//toaster css
+// @import "../../node_modules/angular2-toaster/src/toaster";
+@import "node_modules/angular2-toaster/src/toaster";
+@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker.scss";
+
+.toast {
+  top: 0;
+}
+
+//@import "../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css";
+
+.bs-datepicker-head {
+  background-color: #1797be !important;
+}
+.bs-datepicker-body table td {
+  span.selected,
+  &.selected span,
+  span[class*="select-"]:after,
+  &[class*="select-"] span:after {
+    background-color: #1797be !important;
+  }
+  &.week span {
+    color: #1797be !important;
+  }
+}
+
+//custome css
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.isShipping,
+.associateType,
+.hideUi,
+.stockQuan,
+.duplicateMessage,
+.textValue {
+  display: none;
+}
+
+.shipping {
+  display: block;
+}
+
+.left-margin {
+  margin-left: 10px;
+}
+
+.top-mrging {
+  margin-top: 10px;
+}
+.nav-tabs > .nav-item > .nav-link.active {
+  border: 2px solid #23b7e5;
+}
+
+.tab-box-main .nav-tabs > .nav-item > .nav-link {
+  background-color: #3dbee7;
+  border-right: 0;
+  padding: 5px 0px !important;
+  font-size: 14px;
+  font-weight: normal;
+  position: relative;
+  border: 0px;
+  color: #fff;
+  border: 1px solid #23b7e5;
+}
+.tab-box-main .nav-tabs > .nav-item > .nav-link {
+  background-color: #3dbee7;
+  color: #fff;
+}
+.tab-box-main .nav-link.active {
+  background-color: #fff !important;
+  color: #111 !important;
+}
+
+// .ul-box {
+//   background-color: #fff;
+//   border-top: 1px solid #ccc;
+//   border-bottom: 0;
+//   border-left: 1px solid #ccc;
+//   border-right: 1px solid #ccc;
+// }
+
+li.nav-item {
+  border-right: 1px solid #ccc;
+}
+
+.li-link {
+  display: table;
+  text-align: center !important;
+  margin: 0 auto;
+  width: 100%;
+  border-radius: 0px !important;
+}
+
+// .li-link:active,
+// .li-link:focus {
+//   background-color: #23b7e5;
+//   color: #fff;
+// }
+button.btn.btn-link.li-link.active {
+  background-color: #fff;
+  color: #111;
+}
+
+button.btn.btn-link.li-link {
+  background-color: #3dbee7;
+  border-right: 0;
+  padding: 5px 0px !important;
+  font-size: 14px;
+  font-weight: normal;
+  position: relative;
+  border: 0px;
+  color: #fff;
+  border: 1px solid #23b7e5;
+  border-radius: 3px !important;
+}
+
+.ul-box .btn-link:hover,
+.ul-box .btn-link:focus,
+.ul-box .btn-link:active {
+  text-decoration: none;
+}
+
+.header-box {
+  background: #3dbee7 !important;
+  color: #ffffff !important;
+}

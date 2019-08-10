@@ -1,0 +1,40 @@
+<div class="card card-default">
+    <div class="card-header">
+        <div class="card-title">
+            <strong> Get Scored</strong>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row text-left mb-2">
+            <div class="col-sm-12">
+                <span>Your Score is:{{totalScored}}</span>
+            </div>
+        </div>
+        <div class="row text-left mb-2">
+            <div class="col-sm-12">
+                <span>Thank you {{userInfo?.username}}!!!</span>
+            </div>
+        </div>
+        <div class="row text-left mb-2" *ngIf="totalScored < 5">
+            <div class="col-sm-12">
+                <span>You are Failed!</span>
+            </div>
+        </div>
+        <div class="row text-left mb-2" *ngIf="totalScored > 5">
+            <div class="col-sm-12">
+                <span>You are pass!!!</span>
+            </div>
+        </div>
+        <div class="row text-left mb-2" *ngIf="totalScored > 5">
+            <div class="col-sm-12">
+                <span>Congratulation!!!</span>
+            </div>
+        </div>
+        <div class="row mb-2" *ngIf="totalScored > 5">
+            <div class="col-sm-12">
+                <button class="btn btn-info btn-sm mx-2 " (click)="reTest()"><i
+                        class="	fa fa-refrash"></i>&nbsp;Retest</button>
+            </div>
+        </div>
+    </div>
+</div>
